@@ -1,0 +1,36 @@
+.navbar {
+  background-color: #003b6b;
+  color: red;
+}
+
+.logo {
+  height: 40px;
+  width: 40px;
+}
+
+.navbar-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navbar-content a {
+  font-family: "Bodoni 72 Oldstyle";
+  font-weight: bold;
+  color: white !important;
+}
+
+.navbar-content a:hover {
+  padding: 5px 0 1px 0;
+  border-bottom: 4px solid #cf021b;
+}
+
+.navbar-content img {
+  width: 30px;
+  height: 30px;
+}
+
+.navbar-content img:hover {
+  opacity: 0.5;
+}
