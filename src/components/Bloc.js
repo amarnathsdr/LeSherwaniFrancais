@@ -1,15 +1,12 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-import idee from "../assets/images/idee.png";
-
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 160px;
-  height: 160px;
-  margin: 10px;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(
     to right,
     #003b6b 33%,
@@ -19,17 +16,18 @@ const Wrapper = styled.div`
   );
 `;
 const BlocIcon = styled.img`
-  width: 99%;
-  height: 99%;
-  padding: 40px;
-  background-color: #f7f4ec;
+  width: 98%;
+  height: 98%;
+  padding: 45px;
+  background-color: ${props => props.color || "#f7f4ec"};
 `;
 
 class Bloc extends React.Component {
   render() {
+    const { icone, color } = this.props;
     return (
       <Wrapper>
-        <BlocIcon src={idee} />
+        <BlocIcon src={icone} color={color} />
       </Wrapper>
     );
   }
