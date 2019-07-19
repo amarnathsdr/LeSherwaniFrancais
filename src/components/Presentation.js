@@ -5,7 +5,8 @@ import Descriptif from "./Descriptif";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  background: linear-gradient(#f2eddf, #f7f4ec);
+  background: ${props =>
+    props.color === "blanc" ? "white" : "linear-gradient(#f2eddf, #f7f4ec)"};
   padding: 15px 0px;
 `;
 
@@ -23,15 +24,28 @@ const Descriptifs = styled.div`
 `;
 
 class Presentation extends React.Component {
+  renderDescriptifs() {
+    const { information } = this.props;
+    const elements = information.elements;
+    return elements.map(element => {
+      return (
+        <Descriptif
+          key={element.image}
+          image={element.image}
+          theme={information.theme}
+          texte={element.texte}
+        />
+      );
+    });
+  }
+
   render() {
+    const { information } = this.props;
+    const theme = information.theme;
     return (
-      <Wrapper>
-        <Titre> «Comment vous contactez ?» </Titre>
-        <Descriptifs>
-          <Descriptif color="white" />
-          <Descriptif color="white" />
-          <Descriptif color="white" />
-        </Descriptifs>
+      <Wrapper color={theme}>
+        <Titre> {information.question} </Titre>
+        <Descriptifs>{this.renderDescriptifs()}</Descriptifs>
       </Wrapper>
     );
   }

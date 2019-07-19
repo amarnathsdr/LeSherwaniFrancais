@@ -1,12 +1,12 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 
-import "./Nav2.css";
+import "./Navigation.css";
 
 import logo from "../assets/images/LSF.png";
 import france from "../assets/images/france.png";
 
-class Nav2 extends React.Component {
+class Navigation extends React.Component {
   render() {
     const { links } = this.props;
     const NavLinks = links.map(link => (
@@ -32,4 +32,4 @@ class Nav2 extends React.Component {
   }
 }
 
-export default Nav2;
+export default Navigation;
