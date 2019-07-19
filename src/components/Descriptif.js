@@ -1,6 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
-import idee from "../assets/images/idee.png";
+import styled from "styled-components";
 import Bloc from "./Bloc";
 
 const Wrapper = styled.div`
@@ -28,15 +27,12 @@ const Description = styled.p`
 
 class Descriptif extends React.Component {
   render() {
-    const { color } = this.props;
+    const { theme, image, texte } = this.props;
     return (
       <Wrapper>
-        <Bloc icone={idee} color={color} />
+        <Bloc image={image} theme={theme} />
         <Titre>Votre Imagination</Titre>
-        <Description>
-          Votre imagination n’a aucune limite. Des modèles du passé, du présent
-          ou bien du futur, nous réaliserons vos idées les plus folles !{" "}
-        </Description>
+        <Description>{texte}</Description>
       </Wrapper>
     );
   }
