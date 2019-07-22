@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+import Accueil from "./components/Accueil";
 import Navigation from "./components/Navigation";
 import Presentation from "./components/Presentation";
 
@@ -24,8 +25,14 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      informations: jsonData.informations
+      informations: jsonData.informations,
+      presentation: jsonData.presentation
     };
+  }
+
+  renderPresentation() {
+    const { presentation } = this.state;
+    return <Presentation presentation={presentation} />;
   }
 
   renderInformations() {
@@ -42,6 +49,8 @@ class App extends React.Component {
     return (
       <Wrapper>
         <Navigation links={links} />
+        <Accueil />
+        {this.renderPresentation()}
         {this.renderInformations()}
       </Wrapper>
     );
