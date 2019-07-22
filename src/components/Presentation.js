@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Descriptif from "./Descriptif";
+import Titre from "./Titre";
 
 const Wrapper = styled.div`
   display: flex;
@@ -10,7 +11,7 @@ const Wrapper = styled.div`
   padding: 15px 0px;
 `;
 
-const Titre = styled.p`
+const Question = styled.p`
   align-self: center;
   font-family: "Bodoni 72 Oldstyle";
   font-style: italic;
@@ -39,13 +40,45 @@ class Presentation extends React.Component {
     });
   }
 
+  renderPresentation() {
+    const { presentation } = this.props;
+    const elements = presentation.elements;
+    return elements.map(element => {
+      return (
+        <Descriptif
+          key={element.image}
+          image={element.image}
+          theme={presentation.theme}
+          sousTitre={element.sousTitre}
+          texte={element.texte}
+        />
+      );
+    });
+  }
+
   render() {
-    const { information } = this.props;
-    const theme = information.theme;
+    const { information, presentation } = this.props;
+    var theme, titre;
+    if (information) {
+      theme = information.theme;
+    } else {
+      theme = presentation.theme;
+      titre = presentation.titre;
+    }
     return (
       <Wrapper color={theme}>
-        <Titre> {information.question} </Titre>
-        <Descriptifs>{this.renderDescriptifs()}</Descriptifs>
+        {information ? (
+          <React.Fragment>
+            {information.titre && <Titre texte={information.titre} />}
+            <Question> {information.question} </Question>
+            <Descriptifs>{this.renderDescriptifs()}</Descriptifs>
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            <Titre texte={titre} />
+            <Descriptifs>{this.renderPresentation()}</Descriptifs>
+          </React.Fragment>
+        )}
       </Wrapper>
     );
   }

@@ -1,12 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
+import img from "../assets/images/fb.png";
+
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 200px;
   height: 200px;
+  margin-bottom: 20px;
   background: linear-gradient(
     to right,
     #003b6b 33%,
@@ -25,10 +28,9 @@ const BlocIcon = styled.img`
 class Bloc extends React.Component {
   render() {
     const { image, theme } = this.props;
-    console.log("image", image);
     return (
       <Wrapper>
-        <BlocIcon src="../assets/images/fb.png" color={theme} />
+        <BlocIcon src={require("../assets/images/" + image)} color={theme} />
       </Wrapper>
     );
   }
