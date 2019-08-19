@@ -22,6 +22,10 @@ const Descriptifs = styled.div`
   display: flex;
   flex-direction: inline;
   justify-content: center;
+  @media (max-width: 650px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 class Presentation extends React.Component {
