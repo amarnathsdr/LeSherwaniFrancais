@@ -7,6 +7,10 @@ const Wrapper = styled.div`
   flex-direction: column;
   width: 15%;
   margin: 0% 2%;
+  @media (max-width: 479px) {
+    width: 50%;
+    margin-bottom: 30px;
+  }
 `;
 
 const Titre = styled.p`
