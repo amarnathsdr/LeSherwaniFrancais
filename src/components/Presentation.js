@@ -9,6 +9,8 @@ const Wrapper = styled.div`
   background: ${props =>
     props.color === "blanc" ? "white" : "linear-gradient(#f2eddf, #f7f4ec)"};
   padding: 15px 0px;
+  @media (max-width: 478px) {
+  }
 `;
 
 const Question = styled.p`
@@ -20,9 +22,9 @@ const Question = styled.p`
 
 const Descriptifs = styled.div`
   display: flex;
-  flex-direction: inline;
   justify-content: center;
-  @media (max-width: 650px) {
+  @media (max-width: 478px) {
+    width: 100%;
     flex-direction: column;
     align-items: center;
   }
