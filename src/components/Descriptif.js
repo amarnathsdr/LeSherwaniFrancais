@@ -5,11 +5,24 @@ import Bloc from "./Bloc";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 15%;
+  width: 200px;
   margin: 0% 2%;
-  @media (max-width: 479px) {
-    width: 50%;
-    margin-bottom: 30px;
+  @media (max-width: 1080px) {
+    width: 180px;
+  }
+  @media (max-width: 980px) {
+    width: 140px;
+  }
+  @media (max-width: 768px) {
+    width: 120px;
+  }
+  @media (max-width: 650px) {
+    width: 100px;
+  }
+  @media (max-width: 478px) {
+    width: 80%;
+    align-items: center;
+    margin-bottom: 20px;
   }
 `;
 
@@ -25,7 +38,23 @@ const Description = styled.p`
   font-family: "Hiragino Sans";
   font-weight: 200;
   line-height: 13pt;
+  font-size: 1.2vw;
   color: #003b6b;
+  @media (max-width: 1080px) {
+    font-size: 1.3vw;
+  }
+  @media (max-width: 980px) {
+    font-size: 1.4vw;
+  }
+  @media (max-width: 768px) {
+    font-size: 1.8vw;
+  }
+  @media (max-width: 650px) {
+    font-size: 2vw;
+  }
+  @media (max-width: 478px) {
+    font-size: 5vw;
+  }
 `;
 
 class Descriptif extends React.Component {

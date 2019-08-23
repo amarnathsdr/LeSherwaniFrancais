@@ -9,10 +9,9 @@ import slide2 from "../assets/images/slide2.png";
 
 const Wrapper = styled.div`
   margin-top: 40px;
-  margin-bottom: 50px;
+  margin-bottom: 0px;
   @media (max-width: 479px) {
     margin-top: 30px;
-    margin-bottom: 0px;
   }
 `;
 
@@ -37,6 +36,10 @@ const Bar = styled.div`
   @media (max-width: 479px) {
     height: 35px;
     margin-top: -20px;
+  }
+  @media (max-width: 650px) {
+    height: 50px;
+    margin-top: -30px;
   }
 `;
 
