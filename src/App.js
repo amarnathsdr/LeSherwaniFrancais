@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Accueil from "./components/Accueil";
 import Navigation from "./components/Navigation";
 import Presentation from "./components/Presentation";
+import NavigationBottom from "./components/NavigationBottom";
 
 import jsonData from "./mainPage.json";
 
@@ -52,6 +53,7 @@ class App extends React.Component {
         <Accueil />
         {this.renderPresentation()}
         {this.renderInformations()}
+        <NavigationBottom />
       </Wrapper>
     );
   }
