@@ -30,6 +30,17 @@ const Descriptifs = styled.div`
   }
 `;
 
+const Step = styled.p`
+  color: ${props => (props.color === "blanc" ? "#f2eddf" : "white")};
+  position: absolute;
+  right: 0px;
+  font-size: 20vw;
+  font-family: "Nouvelle Vague";
+  @media (max-width: 478px) {
+    display: none;
+  }
+`;
+
 class Presentation extends React.Component {
   renderDescriptifs() {
     const { information } = this.props;
@@ -64,8 +75,9 @@ class Presentation extends React.Component {
 
   render() {
     const { information, presentation } = this.props;
-    var theme, titre;
+    var step, theme, titre;
     if (information) {
+      step = information.step;
       theme = information.theme;
     } else {
       theme = presentation.theme;
@@ -78,6 +90,7 @@ class Presentation extends React.Component {
             {information.titre && <Titre texte={information.titre} />}
             <Question> {information.question} </Question>
             <Descriptifs>{this.renderDescriptifs()}</Descriptifs>
+            <Step color={theme}>{step}</Step>
           </React.Fragment>
         ) : (
           <React.Fragment>

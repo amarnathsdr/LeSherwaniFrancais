@@ -28,6 +28,7 @@
   "informations": [
     {
       "titre": "Comment ca marche ?",
+      "step": "1",
       "question": "« Comment vous contacter ? »",
       "theme": "degradé",
       "elements": [
@@ -46,6 +47,7 @@
       ]
     },
     {
+      "step": "2",
       "question": "« Que pouvez vous réaliser comme modèle ? »",
       "theme": "blanc",
       "elements": [
@@ -64,6 +66,7 @@
       ]
     },
     {
+      "step": "3",
       "question": "« C’est vraiment du sur-mesure ? » ",
       "theme": "degradé",
       "elements": [
@@ -82,6 +85,7 @@
       ]
     },
     {
+      "step": "4",
       "question": "« Et pour le tissu, comment ça se passe  ? »",
       "theme": "blanc",
       "elements": [
