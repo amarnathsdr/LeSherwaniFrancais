@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import Popup from "reactjs-popup";
+import Modal from "./Modal";
 
 const Wrapper = styled.div`
   display: flex;
@@ -75,9 +77,16 @@ class NavigationBottom extends React.Component {
         </Col>
         <Col>
           <Title> Notre Service </Title>
-          <Liens> Livraisons </Liens>
-          <Liens> Mentions Légales </Liens>
-          <Liens> FAQ </Liens>
+          <Modal
+            balise={<Liens> Livraisons </Liens>}
+            title="Livraisons"
+            content="yo"
+          />
+          <Modal
+            balise={<Liens> Mentions Légales </Liens>}
+            title="Mentions légales"
+            content="yo"
+          />
         </Col>
         <Col>
           <Title> Vos retours nous sont precieux </Title>

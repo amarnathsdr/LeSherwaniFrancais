@@ -13,6 +13,7 @@
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.0",
     "react-slick": "^0.24.0",
+    "reactjs-popup": "^1.4.2",
     "slick-carousel": "^1.8.1",
     "styled-components": "^4.3.1"
   },
