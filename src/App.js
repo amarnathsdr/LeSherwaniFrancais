@@ -10,10 +10,27 @@ import jsonData from "./mainPage.json";
 
 const navigation = {
   links: [
-    { name: "Concept", to: "#concept" },
-    { name: "Créations", to: "#creations" },
-    { name: "l'Atelier", to: "#atelier" },
-    { name: "Produits", to: "#produits" }
+    { name: "Concept", to: "#concept", modal: false },
+    {
+      name: "Créations",
+      to: "#creations",
+      modal: true,
+      content: "Ici, vous allez bientôt pouvoir voir toutes nos réalisations."
+    },
+    {
+      name: "l'Atelier",
+      to: "#atelier",
+      modal: true,
+      content:
+        "L’atelier du Sherwani Français vous permettra de réaliser votre Sherwani virtuel ainsi d’avoir un devis. Vous laisserais donc place à votre imagination !"
+    },
+    {
+      name: "Produits",
+      to: "#produits",
+      modal: true,
+      content:
+        "Ici, vous allez bientôt découvrir tous les tissus disponible pour la réalisation de votre produit."
+    }
   ]
 };
 
