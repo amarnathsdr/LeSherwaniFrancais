@@ -1,38 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import { withTranslation } from "react-i18next";
 
 import Accueil from "./components/Accueil";
 import Navigation from "./components/Navigation";
 import Presentation from "./components/Presentation";
 import NavigationBottom from "./components/NavigationBottom";
-
-import jsonData from "./mainPage.json";
-
-const navigation = {
-  links: [
-    { name: "Concept", to: "#concept", modal: false },
-    {
-      name: "Créations",
-      to: "#creations",
-      modal: true,
-      content: "Ici, vous allez bientôt pouvoir voir toutes nos réalisations."
-    },
-    {
-      name: "l'Atelier",
-      to: "#atelier",
-      modal: true,
-      content:
-        "L’atelier du Sherwani Français vous permettra de réaliser votre Sherwani virtuel ainsi d’avoir un devis. Vous laisserais donc place à votre imagination !"
-    },
-    {
-      name: "Produits",
-      to: "#produits",
-      modal: true,
-      content:
-        "Ici, vous allez bientôt découvrir tous les tissus disponible pour la réalisation de votre produit."
-    }
-  ]
-};
 
 const Wrapper = styled.div`
   display: flex;
@@ -40,33 +13,25 @@ const Wrapper = styled.div`
 `;
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      informations: jsonData.informations,
-      presentation: jsonData.presentation
-    };
-  }
-
   renderPresentation() {
-    const { presentation } = this.state;
-    return <Presentation presentation={presentation} />;
+    const { t } = this.props;
+    return <Presentation presentation={t("presentation")} />;
   }
 
   renderInformations() {
-    const { informations } = this.state;
+    const { t } = this.props;
+    const informations = t("informations");
     return informations.map(information => {
-      return (
-        <Presentation information={information} key={information.question} />
-      );
+      return <Presentation information={information} />;
     });
   }
 
   render() {
-    const { links } = navigation;
+    const { t } = this.props;
+    const liens = t("navbar");
     return (
       <Wrapper>
-        <Navigation links={links} />
+        <Navigation links={liens} />
         <Accueil />
         {this.renderPresentation()}
         {this.renderInformations()}
@@ -76,4 +41,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withTranslation()(App);

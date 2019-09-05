@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Slider from "react-slick";
+import { withTranslation } from "react-i18next";
 
 import "./Accueil.css";
 
@@ -63,7 +64,7 @@ const Slogan = styled.p`
   }
 `;
 
-const Definition = styled.p`
+const Presentation = styled.p`
   width: 25%;
   font-size: 1.5vw;
   font-family: "Hiragino sans";
@@ -100,24 +101,22 @@ class Accueil extends React.Component {
       slidesToShow: 1,
       slidesToScroll: 1
     };
+
+    const { t } = this.props;
     return (
       <Wrapper>
         <Left>
-          <Slogan> Du sur-mesure entre vos mains. </Slogan>
-          <Definition>
-            Le Sherwani Français est tout simplement un mélange inédit entre
-            deux cultures. Notre but ? Allier tradition et modernité pour vous
-            proposer du sur-mesure.
-          </Definition>
+          <Slogan> {t("accueil.slogan")} </Slogan>
+          <Presentation>{t("accueil.presentation")}</Presentation>
         </Left>
         <Slider {...settings}>
           <div>
             <Photo src={slide1} />
-            <Reference>WaistCoat avec les boutons Padmavati</Reference>
+            <Reference>{t("accueil.reference1")}</Reference>
           </div>
           <div>
             <Photo src={slide2} />
-            <Reference>Sherwani manche courte et broderie dorée</Reference>
+            <Reference>{t("accueil.reference2")}</Reference>
           </div>
         </Slider>
         <Bar />
@@ -126,4 +125,4 @@ class Accueil extends React.Component {
   }
 }
 
-export default Accueil;
+export default withTranslation()(Accueil);
