@@ -28,7 +28,7 @@ class App extends React.Component {
 
   render() {
     const { t } = this.props;
-    const liens = t("liens");
+    const liens = t("navbar");
     return (
       <Wrapper>
         <Navigation links={liens} />

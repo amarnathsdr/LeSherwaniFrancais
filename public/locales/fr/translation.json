@@ -1,11 +1,5 @@
 {
-  "navbar": {
-    "concept": "Concept",
-    "creation": "Créations",
-    "atelier": "l'Atelier",
-    "produit": "Produits"
-  },
-  "liens": [
+  "navbar": [
     { "name": "Concept", "to": "#concept", "modal": false },
     {
       "name": "Créations",
