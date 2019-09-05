@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Popup from "reactjs-popup";
 import Modal from "./Modal";
+import { withTranslation } from "react-i18next";
 
 const Wrapper = styled.div`
   display: flex;
@@ -68,28 +69,29 @@ const Retours = styled.input`
 
 class NavigationBottom extends React.Component {
   render() {
+    const { t } = this.props;
     return (
       <Wrapper>
         <Col>
-          <Title> Contactez-nous </Title>
+          <Title> {t("bottomNav.contact")} </Title>
           <Liens> 07 61 38 22 77 </Liens>
           <Liens> lesherwanifrancais@hotmail.fr </Liens>
         </Col>
         <Col>
-          <Title> Notre Service </Title>
+          <Title> {t("bottomNav.service")} </Title>
           <Modal
-            balise={<Liens> Livraisons </Liens>}
-            title="Livraisons"
+            balise={<Liens> {t("bottomNav.livraison")} </Liens>}
+            title={t("bottomNav.livraison")}
             content="yo"
           />
           <Modal
-            balise={<Liens> Mentions Légales </Liens>}
-            title="Mentions légales"
+            balise={<Liens> {t("bottomNav.mentionslegales")} </Liens>}
+            title={t("bottomNav.mentionslegales")}
             content="yo"
           />
         </Col>
         <Col>
-          <Title> Vos retours nous sont precieux </Title>
+          <Title> {t("bottomNav.retour")} </Title>
           <Retours />
         </Col>
       </Wrapper>
@@ -97,4 +99,4 @@ class NavigationBottom extends React.Component {
   }
 }
 
-export default NavigationBottom;
+export default withTranslation()(NavigationBottom);
