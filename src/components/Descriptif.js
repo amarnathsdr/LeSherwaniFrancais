@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import Bloc from "./Bloc";
 
@@ -57,7 +58,7 @@ const Description = styled.p`
   }
 `;
 
-class Descriptif extends React.Component {
+class Descriptif extends React.PureComponent {
   render() {
     const { theme, image, texte, sousTitre } = this.props;
     return (
@@ -69,5 +70,12 @@ class Descriptif extends React.Component {
     );
   }
 }
+
+Descriptif.propTypes = {
+  theme: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  texte: PropTypes.string.isRequired,
+  sousTitre: PropTypes.string.isRequired
+};
 
 export default Descriptif;
