@@ -7,15 +7,15 @@ import { withTranslation } from "react-i18next";
 import Modal from "./Modal";
 import "./Navigation.css";
 
-import logo from "../assets/images/LSF.png";
-import france from "../assets/images/france.png";
-import angleterre from "../assets/images/angleterre.png";
+import logo from "assets/images/LSF.png";
+import france from "assets/images/france.png";
+import angleterre from "assets/images/angleterre.png";
 
 class Navigation extends React.PureComponent {
   render() {
     const { links, i18n } = this.props;
 
-    const isFrench = i18n.language === "fr"
+    const isFrench = i18n.language === "fr";
     const NavLinks = links.map(link =>
       link.modal ? (
         <Modal
@@ -48,19 +48,11 @@ class Navigation extends React.PureComponent {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="navbar-content">
             {NavLinks}
-            {isFrench ? (
-              <img
-                src={angleterre}
-                alt="language"
-                onClick={() => changeLanguage("en")}
-              />
-            ) : (
-              <img
-                src={france}
-                alt="language"
-                onClick={() => changeLanguage("fr")}
-              />
-            )}
+            <img
+              src={isFrench ? angleterre : france}
+              alt="language"
+              onClick={() => changeLanguage(isFrench ? "en" : "fr")}
+            />
           </Nav>
         </Navbar.Collapse>
       </Navbar>
