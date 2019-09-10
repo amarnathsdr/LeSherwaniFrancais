@@ -1,7 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
-
-import img from "../assets/images/fb.png";
 
 const Wrapper = styled.div`
   display: flex;
@@ -58,7 +57,7 @@ const BlocIcon = styled.img`
   }
 `;
 
-class Bloc extends React.Component {
+class Bloc extends React.PureComponent {
   render() {
     const { image, theme } = this.props;
     return (
@@ -68,5 +67,10 @@ class Bloc extends React.Component {
     );
   }
 }
+
+Bloc.propTypes = {
+  image: PropTypes.string.isRequired,
+  theme: PropTypes.string.isRequired
+};
 
 export default Bloc;

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Popup from "reactjs-popup";
 import styled from "styled-components";
 
@@ -35,7 +36,7 @@ const Content = styled.p`
   }
 `;
 
-class Modal extends React.Component {
+class Modal extends React.PureComponent {
   render() {
     const { balise, title, content } = this.props;
     return (
@@ -51,5 +52,11 @@ class Modal extends React.Component {
     );
   }
 }
+
+Modal.propTypes = {
+  balise: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired
+};
 
 export default Modal;

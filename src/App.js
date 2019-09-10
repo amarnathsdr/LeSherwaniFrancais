@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 import { withTranslation } from "react-i18next";
 
 import Accueil from "./components/Accueil";
@@ -40,5 +41,9 @@ class App extends React.Component {
     );
   }
 }
+
+App.propTypes = {
+  t: PropTypes.func.isRequired
+};
 
 export default withTranslation()(App);

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import Descriptif from "./Descriptif";
 import Titre from "./Titre";
@@ -41,16 +42,20 @@ const Step = styled.p`
   }
 `;
 
-class Presentation extends React.Component {
+class Presentation extends React.PureComponent {
   renderDescriptifs() {
-    const { information } = this.props;
-    const elements = information.elements;
+    const {
+      information: { elements }
+    } = this.props;
+    const {
+      information: { theme }
+    } = this.props;
     return elements.map(element => {
       return (
         <Descriptif
           key={element.image}
           image={element.image}
-          theme={information.theme}
+          theme={theme}
           texte={element.texte}
         />
       );
@@ -59,7 +64,9 @@ class Presentation extends React.Component {
 
   renderPresentation() {
     const { presentation } = this.props;
-    const elements = presentation.elements;
+    const {
+      presentation: { elements }
+    } = this.props;
     return elements.map(element => {
       return (
         <Descriptif
@@ -75,7 +82,7 @@ class Presentation extends React.Component {
 
   render() {
     const { information, presentation } = this.props;
-    var step, theme, titre;
+    let step, theme, titre;
     if (information) {
       step = information.step;
       theme = information.theme;
@@ -102,5 +109,10 @@ class Presentation extends React.Component {
     );
   }
 }
+
+Presentation.propTypes = {
+  information: PropTypes.object.isRequired,
+  presentation: PropTypes.object.isRequired
+};
 
 export default Presentation;

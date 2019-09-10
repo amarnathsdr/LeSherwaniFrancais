@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Popup from "reactjs-popup";
-import Modal from "./Modal";
 import { withTranslation } from "react-i18next";
+
+import Modal from "./Modal";
 
 const Wrapper = styled.div`
   display: flex;
@@ -67,7 +67,7 @@ const Retours = styled.input`
   width: 100%;
 `;
 
-class NavigationBottom extends React.Component {
+class NavigationBottom extends React.PureComponent {
   render() {
     const { t } = this.props;
     return (

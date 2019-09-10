@@ -90,9 +90,9 @@ const Photo = styled.img`
   }
 `;
 
-class Accueil extends React.Component {
+class Accueil extends React.PureComponent {
   render() {
-    var settings = {
+    const settings = {
       autoplay: true,
       autoplaySpeed: 5000,
       dots: true,
