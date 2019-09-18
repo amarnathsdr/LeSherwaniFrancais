@@ -1,23 +1,80 @@
 const express = require("express");
-const db = require("./db");
-const feedbackRouter = require("./routes/feedback-router");
-const app = express();
 const bodyParser = require("body-parser");
-const cors = require("cors");
-const PORT = 4000;
+const graphqlHttp = require("express-graphql");
+const { buildSchema } = require("graphql");
+const mongoose = require("mongoose");
 
-app.use(cors());
-app.use(
-  bodyParser.urlencoded({
-    extended: true
-  })
-);
+const Feedback = require("./models/feedback");
+
+const app = express();
+
 app.use(bodyParser.json());
 
-db.on("error", console.error.bind(console, "MongoDB connection error:"));
+app.use(
+  "/graphql",
+  graphqlHttp({
+    schema: buildSchema(`
+      type Feedback {
+        _id: ID!
+        content: String
+      }
 
-app.use("/api", feedbackRouter);
+      type RootQuery {
+        feedbacks: [Feedback!]
+      }
 
-app.listen(PORT, function() {
-  console.log("Server is running on Port: " + PORT);
-});
+      type RootMutation {
+        createFeedback(content: String): Feedback
+      }
+
+      schema{
+        query: RootQuery
+        mutation: RootMutation
+      }
+    `),
+    rootValue: {
+      feedbacks: () => {
+        return Feedback.find()
+          .then(feedbacks => {
+            return feedbacks.map(feedback => {
+              console.log("feed", feedback);
+              return { ...feedback._doc };
+            });
+          })
+          .catch(err => {
+            throw err;
+          });
+      },
+      createFeedback: args => {
+        const feedback = new Feedback({
+          content: args.content
+        });
+        return feedback
+          .save()
+          .then(result => {
+            console.log(result);
+            return { ...result._doc };
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      }
+    },
+    graphiql: true
+  })
+);
+
+mongoose
+  .connect(
+    `mongodb+srv://${process.env.MONGO_USER}:${
+      process.env.MONGO_PASSWORD
+    }@cluster0-rsdbl.mongodb.net/${
+      process.env.MONGO_DB
+    }?retryWrites=true&w=majority`
+  )
+  .then()
+  .catch(err => {
+    console.log(err);
+  });
+
+app.listen(4000);
