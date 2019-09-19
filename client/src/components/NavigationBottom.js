@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { withTranslation } from "react-i18next";
+import axios from "axios";
 import api from "../../api";
 
 import Modal from "./Modal";
@@ -77,10 +78,22 @@ class NavigationBottom extends React.PureComponent {
     };
   }
 
-  handleInsertFeedback = async () => {
+  handleInsertFeedback = () => {
     const { content } = this.state;
-    const payload = { content };
-    await api.insertFeedback(payload).then(res => {
+
+    axios({
+      url: "http://localhost:4000/graphql",
+      method: "post",
+      data: {
+        query: `
+        mutation {
+           createFeedback(content: "${content}"){
+             content
+           }
+        }
+      `
+      }
+    }).then(() => {
       this.setState({
         content: ""
       });

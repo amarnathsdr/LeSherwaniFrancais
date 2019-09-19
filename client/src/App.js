@@ -2,11 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { withTranslation } from "react-i18next";
+import { BrowserRouter, Route } from "react-router-dom";
 
-import Accueil from "components/Accueil";
 import Navigation from "components/Navigation";
-import Presentation from "components/Presentation";
 import NavigationBottom from "components/NavigationBottom";
+import Concept from "components/page/Concept";
+import Creations from "components/page/Creations";
+import Atelier from "components/page/Atelier";
+import Produits from "components/page/Produits";
 
 const Wrapper = styled.div`
   display: flex;
@@ -14,30 +17,20 @@ const Wrapper = styled.div`
 `;
 
 class App extends React.Component {
-  renderPresentation() {
-    const { t } = this.props;
-    return <Presentation presentation={t("presentation")} />;
-  }
-
-  renderInformations() {
-    const { t } = this.props;
-    const informations = t("informations");
-    return informations.map(information => {
-      return <Presentation information={information} />;
-    });
-  }
-
   render() {
     const { t } = this.props;
     const liens = t("navbar");
     return (
-      <Wrapper>
-        <Navigation links={liens} />
-        <Accueil />
-        {this.renderPresentation()}
-        {this.renderInformations()}
-        <NavigationBottom />
-      </Wrapper>
+      <BrowserRouter>
+        <Wrapper>
+          <Route path="/" render={() => <Navigation links={liens} />} />
+          <Route exact path="/" component={Concept} />
+          <Route path="/creations" component={Creations} />
+          <Route path="/atelier" component={Atelier} />
+          <Route path="/produits" component={Produits} />
+          <Route path="/" component={NavigationBottom} />
+        </Wrapper>
+      </BrowserRouter>
     );
   }
 }

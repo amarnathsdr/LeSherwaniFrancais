@@ -1,65 +1,30 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const graphqlHttp = require("express-graphql");
-const { buildSchema } = require("graphql");
 const mongoose = require("mongoose");
 
-const Feedback = require("./models/feedback");
+const graphqlSchema = require("./graphql/schemas/feedback");
+const graphqlResolvers = require("./graphql/resolvers/feedback");
 
 const app = express();
 
 app.use(bodyParser.json());
 
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST,GET,OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-type, Authorization");
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200);
+  }
+  next();
+});
+
 app.use(
   "/graphql",
   graphqlHttp({
-    schema: buildSchema(`
-      type Feedback {
-        _id: ID!
-        content: String
-      }
-
-      type RootQuery {
-        feedbacks: [Feedback!]
-      }
-
-      type RootMutation {
-        createFeedback(content: String): Feedback
-      }
-
-      schema{
-        query: RootQuery
-        mutation: RootMutation
-      }
-    `),
-    rootValue: {
-      feedbacks: () => {
-        return Feedback.find()
-          .then(feedbacks => {
-            return feedbacks.map(feedback => {
-              console.log("feed", feedback);
-              return { ...feedback._doc };
-            });
-          })
-          .catch(err => {
-            throw err;
-          });
-      },
-      createFeedback: args => {
-        const feedback = new Feedback({
-          content: args.content
-        });
-        return feedback
-          .save()
-          .then(result => {
-            console.log(result);
-            return { ...result._doc };
-          })
-          .catch(err => {
-            console.log(err);
-          });
-      }
-    },
+    schema: graphqlSchema,
+    rootValue: graphqlResolvers,
     graphiql: true
   })
 );
