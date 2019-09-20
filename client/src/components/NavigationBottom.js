@@ -57,6 +57,9 @@ const Liens = styled.p`
   color: white;
   margin-bottom: 0px;
   font-size: 1.2vw;
+  &:hover {
+    text-decoration: underline;
+  }
   @media (max-width: 980px) {
     font-size: 1.5vw;
   }
@@ -129,12 +132,12 @@ class NavigationBottom extends React.PureComponent {
           <Modal
             balise={<Liens> {t("bottomNav.livraison")} </Liens>}
             title={t("bottomNav.livraison")}
-            content="yo"
+            content="Nous livrons en main propre sur Paris. Nous pouvons l'envoyer directement chez vous ou bien par service Relay."
           />
           <Modal
             balise={<Liens> {t("bottomNav.mentionslegales")} </Liens>}
             title={t("bottomNav.mentionslegales")}
-            content="yo"
+            content="Amarnath Sundaram, 86 rue richard wagner, Le blanc mesnil. 0761382277. lesherwanifrancais@hotmail.fr"
           />
         </Col>
         <Col>
