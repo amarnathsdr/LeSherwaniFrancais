@@ -9,6 +9,7 @@ const graphqlResolvers = require("./graphql/resolvers/feedback");
 const app = express();
 
 app.use(bodyParser.json());
+app.use(bodyParser.text({ type: "application/graphql" }));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");

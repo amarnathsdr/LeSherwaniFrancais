@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { withTranslation } from "react-i18next";
-import axios from "axios";
-import api from "../../api";
+import CREATE_FEEDBACK from "../apollo/mutations";
+import { Mutation } from "@apollo/react-components";
 
 import Modal from "./Modal";
 
@@ -23,6 +23,7 @@ const Wrapper = styled.div`
 const Col = styled.div`
   margin: 30px 50px;
   display: flex;
+  width: 250%;
   flex-direction: column;
   @media (max-width: 980px) {
     margin: 30px 30px;
@@ -31,6 +32,7 @@ const Col = styled.div`
     margin: 20px 10px;
   }
   @media (max-width: 478px) {
+    width: 95%;
     align-items: center;
   }
 `;
@@ -39,6 +41,7 @@ const Title = styled.p`
   color: white;
   font-family: "Couture";
   font-size: medium;
+  margin-bottom: 10%;
   @media (max-width: 980px) {
     font-size: small;
   }
@@ -65,40 +68,51 @@ const Liens = styled.p`
   }
 `;
 
-const Retours = styled.input`
+const Retours = styled.textarea`
+  padding: 1%;
+  height: 80%;
   width: 100%;
+  font-size: 1.1vw;
+  margin-bottom: 3%;
+  border: none;
+  color: black;
+  border-radius: 3px;
+  @media (max-width: 980px) {
+    font-size: 1.5vw;
+  }
+  @media (max-width: 650px) {
+    font-size: 2vw;
+  }
+  @media (max-width: 478px) {
+    width: 80%;
+    font-size: medium;
+  }
+`;
+
+const Button = styled.button`
+  background-color: white;
+  align-self: flex-end;
+  border: none;
+  border-radius: 3px;
+  font-size: 1.1vw;
+  width: 30%;
+  @media (max-width: 650px) {
+    font-size: 1.5vw;
+  }
+  @media (max-width: 478px) {
+    width: 80%;
+    align-self: center;
+    font-size: medium;
+  }
 `;
 
 class NavigationBottom extends React.PureComponent {
   constructor(props) {
     super(props);
-
     this.state = {
       content: ""
     };
   }
-
-  handleInsertFeedback = () => {
-    const { content } = this.state;
-
-    axios({
-      url: "http://localhost:4000/graphql",
-      method: "post",
-      data: {
-        query: `
-        mutation {
-           createFeedback(content: "${content}"){
-             content
-           }
-        }
-      `
-      }
-    }).then(() => {
-      this.setState({
-        content: ""
-      });
-    });
-  };
 
   render() {
     const { t } = this.props;
@@ -127,9 +141,23 @@ class NavigationBottom extends React.PureComponent {
           <Retours
             onChange={e => this.setState({ content: e.target.value })}
             value={content}
-            placeholder="Vos retours sont précieux !"
+            placeholder={t("bottomNav.retour")}
           />
-          <button onClick={() => this.handleInsertFeedback()}>ADD</button>
+          <Mutation mutation={CREATE_FEEDBACK} variables={{ content }}>
+            {createFeedback => (
+              <Button
+                onClick={() =>
+                  createFeedback().then(() => {
+                    this.setState({
+                      content: ""
+                    });
+                  })
+                }
+              >
+                {t("bottomNav.envoyer")}
+              </Button>
+            )}
+          </Mutation>
         </Col>
       </Wrapper>
     );
