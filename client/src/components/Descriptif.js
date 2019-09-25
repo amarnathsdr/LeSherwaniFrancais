@@ -58,17 +58,15 @@ const Description = styled.p`
   }
 `;
 
-class Descriptif extends React.PureComponent {
-  render() {
-    const { theme, image, texte, sousTitre } = this.props;
-    return (
-      <Wrapper>
-        <Bloc image={image} theme={theme} />
-        {sousTitre && <Titre>{sousTitre}</Titre>}
-        <Description>{texte}</Description>
-      </Wrapper>
-    );
-  }
+function Descriptif(props) {
+  const { theme, image, texte, sousTitre } = props;
+  return (
+    <Wrapper>
+      <Bloc image={image} theme={theme} />
+      {sousTitre && <Titre>{sousTitre}</Titre>}
+      <Description>{texte}</Description>
+    </Wrapper>
+  );
 }
 
 Descriptif.propTypes = {

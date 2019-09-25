@@ -1,9 +1,10 @@
 import React from "react";
+import { withTranslation } from "react-i18next";
+import Travaux from "../Travaux";
 
-class Produits extends React.Component {
-  render() {
-    return null;
-  }
+function Produits(props) {
+  const { t } = props;
+  return <Travaux src="travaux.png" presentation={t("produits.content")} />;
 }
 
-export default Produits;
+export default withTranslation()(Produits);

@@ -90,39 +90,37 @@ const Photo = styled.img`
   }
 `;
 
-class Accueil extends React.PureComponent {
-  render() {
-    const settings = {
-      autoplay: true,
-      autoplaySpeed: 5000,
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1
-    };
+function Accueil(props) {
+  const settings = {
+    autoplay: true,
+    autoplaySpeed: 5000,
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
 
-    const { t } = this.props;
-    return (
-      <Wrapper>
-        <Left>
-          <Slogan> {t("accueil.slogan")} </Slogan>
-          <Presentation>{t("accueil.presentation")}</Presentation>
-        </Left>
-        <Slider {...settings}>
-          <div>
-            <Photo src={slide1} />
-            <Reference>{t("accueil.reference1")}</Reference>
-          </div>
-          <div>
-            <Photo src={slide2} />
-            <Reference>{t("accueil.reference2")}</Reference>
-          </div>
-        </Slider>
-        <Bar />
-      </Wrapper>
-    );
-  }
+  const { t } = props;
+  return (
+    <Wrapper>
+      <Left>
+        <Slogan> {t("accueil.slogan")} </Slogan>
+        <Presentation>{t("accueil.presentation")}</Presentation>
+      </Left>
+      <Slider {...settings}>
+        <div>
+          <Photo src={slide1} />
+          <Reference>{t("accueil.reference1")}</Reference>
+        </div>
+        <div>
+          <Photo src={slide2} />
+          <Reference>{t("accueil.reference2")}</Reference>
+        </div>
+      </Slider>
+      <Bar />
+    </Wrapper>
+  );
 }
 
 export default withTranslation()(Accueil);

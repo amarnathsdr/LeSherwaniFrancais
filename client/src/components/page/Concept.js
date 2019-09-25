@@ -5,29 +5,27 @@ import { withTranslation } from "react-i18next";
 import Accueil from "../Accueil";
 import Presentation from "../Presentation";
 
-class Concept extends React.Component {
-  renderPresentation() {
-    const { t } = this.props;
-    return <Presentation presentation={t("presentation")} />;
-  }
+function renderPresentation(props) {
+  const { t } = props;
+  return <Presentation presentation={t("presentation")} />;
+}
 
-  renderInformations() {
-    const { t } = this.props;
-    const informations = t("informations");
-    return informations.map(information => {
-      return <Presentation information={information} />;
-    });
-  }
+function renderInformations(props) {
+  const { t } = props;
+  const informations = t("informations");
+  return informations.map(information => {
+    return <Presentation information={information} />;
+  });
+}
 
-  render() {
-    return (
-      <Fragment>
-        <Accueil />
-        {this.renderPresentation()}
-        {this.renderInformations()}
-      </Fragment>
-    );
-  }
+function Concept(props) {
+  return (
+    <Fragment>
+      <Accueil />
+      {renderPresentation(props)}
+      {renderInformations(props)}
+    </Fragment>
+  );
 }
 
 Concept.propTypes = {

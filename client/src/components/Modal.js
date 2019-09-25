@@ -36,21 +36,19 @@ const Content = styled.p`
   }
 `;
 
-class Modal extends React.PureComponent {
-  render() {
-    const { balise, title, content } = this.props;
-    return (
-      <Popup
-        trigger={balise}
-        modal
-        closeOnDocumentClick
-        contentStyle={modalStyles.backgroundStyle}
-      >
-        <Title>{title}</Title>
-        <Content>{content}</Content>
-      </Popup>
-    );
-  }
+function Modal(props) {
+  const { balise, title, content } = props;
+  return (
+    <Popup
+      trigger={balise}
+      modal
+      closeOnDocumentClick
+      contentStyle={modalStyles.backgroundStyle}
+    >
+      <Title>{title}</Title>
+      <Content>{content}</Content>
+    </Popup>
+  );
 }
 
 Modal.propTypes = {
