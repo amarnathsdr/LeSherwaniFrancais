@@ -1,23 +1,17 @@
 {
   "navbar": [
-    { "name": "Concept", "to": "#concept", "modal": false },
+    { "name": "Concept", "to": "/" },
     {
       "name": "Creations",
-      "to": "#creations",
-      "modal": true,
-      "content": "Soon you will see here all our previous creations"
+      "to": "/creations"
     },
     {
       "name": "The Factory",
-      "to": "#atelier",
-      "modal": true,
-      "content": "With The French Sherani Factory, you will be able to realise your own virtual Sherwani with a price estimation."
+      "to": "/atelier"
     },
     {
       "name": "Products",
-      "to": "#produits",
-      "modal": true,
-      "content": "You will see all the available fabrics for your product making."
+      "to": "/produits"
     }
   ],
   "accueil": {
@@ -138,5 +132,14 @@
     "mentionslegales": "Legal notice",
     "retour": "Your feedback are precious",
     "envoyer": "send"
+  },
+  "atelier": {
+    "content": "With The French Sherani Factory, you will be able to realise your own virtual Sherwani with a price estimation."
+  },
+  "produits": {
+    "content": "You will see all the available fabrics for your product making."
+  },
+  "creations": {
+    "content": "Soon you will see here all our previous creations"
   }
 }

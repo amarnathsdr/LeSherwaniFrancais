@@ -25,17 +25,15 @@ const Droite = styled.hr`
   background-color: #c00101;
 `;
 
-class Titre extends React.PureComponent {
-  render() {
-    const { texte } = this.props;
-    return (
-      <Wrapper>
-        <Gauche />
-        <Texte>{texte} </Texte>
-        <Droite />
-      </Wrapper>
-    );
-  }
+function Titre(props) {
+  const { texte } = props;
+  return (
+    <Wrapper>
+      <Gauche />
+      <Texte>{texte} </Texte>
+      <Droite />
+    </Wrapper>
+  );
 }
 
 Titre.propTypes = {

@@ -1,23 +1,17 @@
 {
   "navbar": [
-    { "name": "Concept", "to": "#concept", "modal": false },
+    { "name": "Concept", "to": "/" },
     {
       "name": "Créations",
-      "to": "#creations",
-      "modal": true,
-      "content": "Ici, vous allez bientôt pouvoir voir toutes nos réalisations."
+      "to": "/creations"
     },
     {
       "name": "l'Atelier",
-      "to": "#atelier",
-      "modal": true,
-      "content": "L’atelier du Sherwani Français vous permettra de réaliser votre Sherwani virtuel ainsi d’avoir un devis. Vous laisserais donc place à votre imagination !"
+      "to": "/atelier"
     },
     {
       "name": "Produits",
-      "to": "#produits",
-      "modal": true,
-      "content": "Ici, vous allez bientôt découvrir tous les tissus disponible pour la réalisation de votre produit."
+      "to": "/produits"
     }
   ],
   "accueil": {
@@ -138,5 +132,14 @@
     "mentionslegales": "Mentions légales",
     "retour": "Vos retours nous sont precieux",
     "envoyer": "envoyer"
+  },
+  "atelier": {
+    "content": "L’atelier du Sherwani Français vous permettra de réaliser votre Sherwani virtuel ainsi d’avoir un devis. Vous laisserais donc place à votre imagination !"
+  },
+  "produits": {
+    "content": "Ici, vous allez bientôt découvrir tous les tissus disponible pour la réalisation de votre produit."
+  },
+  "creations": {
+    "content": "Ici, vous allez bientôt découvrir toutes nos créations."
   }
 }

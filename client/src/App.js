@@ -5,6 +5,8 @@ import { withTranslation } from "react-i18next";
 import { BrowserRouter, Route } from "react-router-dom";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
+import ReactGA from "react-ga";
+import { PageView, initGA } from "./tracking";
 
 import Navigation from "components/Navigation";
 import NavigationBottom from "components/NavigationBottom";
@@ -23,6 +25,10 @@ const client = new ApolloClient({
 });
 
 class App extends React.Component {
+  componentDidMount() {
+    initGA("UA-148407286-1");
+    PageView();
+  }
   render() {
     const { t } = this.props;
     const liens = t("navbar");

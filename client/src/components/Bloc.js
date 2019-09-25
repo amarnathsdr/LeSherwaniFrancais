@@ -57,15 +57,13 @@ const BlocIcon = styled.img`
   }
 `;
 
-class Bloc extends React.PureComponent {
-  render() {
-    const { image, theme } = this.props;
-    return (
-      <Wrapper>
-        <BlocIcon src={require("../assets/images/" + image)} color={theme} />
-      </Wrapper>
-    );
-  }
+function Bloc(props) {
+  const { image, theme } = props;
+  return (
+    <Wrapper>
+      <BlocIcon src={require("../assets/images/" + image)} color={theme} />
+    </Wrapper>
+  );
 }
 
 Bloc.propTypes = {

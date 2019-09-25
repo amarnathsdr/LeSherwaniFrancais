@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { withTranslation } from "react-i18next";
 import CREATE_FEEDBACK from "../apollo/mutations";
@@ -109,62 +109,51 @@ const Button = styled.button`
   }
 `;
 
-class NavigationBottom extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      content: ""
-    };
-  }
-
-  render() {
-    const { t } = this.props;
-    const { content } = this.state;
-    return (
-      <Wrapper>
-        <Col>
-          <Title> {t("bottomNav.contact")} </Title>
-          <Liens> 07 61 38 22 77 </Liens>
-          <Liens> lesherwanifrancais@hotmail.fr </Liens>
-        </Col>
-        <Col>
-          <Title> {t("bottomNav.service")} </Title>
-          <Modal
-            balise={<Liens> {t("bottomNav.livraison")} </Liens>}
-            title={t("bottomNav.livraison")}
-            content="Nous livrons en main propre sur Paris. Nous pouvons l'envoyer directement chez vous ou bien par service Relay."
-          />
-          <Modal
-            balise={<Liens> {t("bottomNav.mentionslegales")} </Liens>}
-            title={t("bottomNav.mentionslegales")}
-            content="Amarnath Sundaram, 86 rue richard wagner, Le blanc mesnil. 0761382277. lesherwanifrancais@hotmail.fr"
-          />
-        </Col>
-        <Col>
-          <Retours
-            onChange={e => this.setState({ content: e.target.value })}
-            value={content}
-            placeholder={t("bottomNav.retour")}
-          />
-          <Mutation mutation={CREATE_FEEDBACK} variables={{ content }}>
-            {createFeedback => (
-              <Button
-                onClick={() =>
-                  createFeedback().then(() => {
-                    this.setState({
-                      content: ""
-                    });
-                  })
-                }
-              >
-                {t("bottomNav.envoyer")}
-              </Button>
-            )}
-          </Mutation>
-        </Col>
-      </Wrapper>
-    );
-  }
+function NavigationBottom(props) {
+  const [content, setContent] = useState("");
+  const { t } = props;
+  return (
+    <Wrapper>
+      <Col>
+        <Title> {t("bottomNav.contact")} </Title>
+        <Liens> 07 61 38 22 77 </Liens>
+        <Liens> lesherwanifrancais@hotmail.fr </Liens>
+      </Col>
+      <Col>
+        <Title> {t("bottomNav.service")} </Title>
+        <Modal
+          balise={<Liens> {t("bottomNav.livraison")} </Liens>}
+          title={t("bottomNav.livraison")}
+          content="Nous livrons en main propre sur Paris. Nous pouvons l'envoyer directement chez vous ou bien par service Relay."
+        />
+        <Modal
+          balise={<Liens> {t("bottomNav.mentionslegales")} </Liens>}
+          title={t("bottomNav.mentionslegales")}
+          content="Amarnath Sundaram, 86 rue richard wagner, Le blanc mesnil. 0761382277. lesherwanifrancais@hotmail.fr"
+        />
+      </Col>
+      <Col>
+        <Retours
+          onChange={e => setContent(e.target.value)}
+          value={content}
+          placeholder={t("bottomNav.retour")}
+        />
+        <Mutation mutation={CREATE_FEEDBACK} variables={{ content }}>
+          {createFeedback => (
+            <Button
+              onClick={() =>
+                createFeedback().then(() => {
+                  setContent("");
+                })
+              }
+            >
+              {t("bottomNav.envoyer")}
+            </Button>
+          )}
+        </Mutation>
+      </Col>
+    </Wrapper>
+  );
 }
 
 export default withTranslation()(NavigationBottom);

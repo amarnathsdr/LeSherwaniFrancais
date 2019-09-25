@@ -42,72 +42,71 @@ const Step = styled.p`
   }
 `;
 
-class Presentation extends React.PureComponent {
-  renderDescriptifs() {
-    const {
-      information: { elements }
-    } = this.props;
-    const {
-      information: { theme }
-    } = this.props;
-    return elements.map(element => {
-      return (
-        <Descriptif
-          key={element.image}
-          image={element.image}
-          theme={theme}
-          texte={element.texte}
-        />
-      );
-    });
-  }
-
-  renderPresentation() {
-    const { presentation } = this.props;
-    const {
-      presentation: { elements }
-    } = this.props;
-    return elements.map(element => {
-      return (
-        <Descriptif
-          key={element.image}
-          image={element.image}
-          theme={presentation.theme}
-          sousTitre={element.sousTitre}
-          texte={element.texte}
-        />
-      );
-    });
-  }
-
-  render() {
-    const { information, presentation } = this.props;
-    let step, theme, titre;
-    if (information) {
-      step = information.step;
-      theme = information.theme;
-    } else {
-      theme = presentation.theme;
-      titre = presentation.titre;
-    }
+function renderDescriptifs(props) {
+  const {
+    information: { elements }
+  } = props;
+  const {
+    information: { theme }
+  } = props;
+  return elements.map(element => {
     return (
-      <Wrapper color={theme}>
-        {information ? (
-          <React.Fragment>
-            {information.titre && <Titre texte={information.titre} />}
-            <Question> {information.question} </Question>
-            <Descriptifs>{this.renderDescriptifs()}</Descriptifs>
-            <Step color={theme}>{step}</Step>
-          </React.Fragment>
-        ) : (
-          <React.Fragment>
-            <Titre texte={titre} />
-            <Descriptifs>{this.renderPresentation()}</Descriptifs>
-          </React.Fragment>
-        )}
-      </Wrapper>
+      <Descriptif
+        key={element.image}
+        image={element.image}
+        theme={theme}
+        texte={element.texte}
+      />
     );
+  });
+}
+
+function renderPresentation(props) {
+  const { presentation } = props;
+  const {
+    presentation: { elements }
+  } = props;
+  return elements.map(element => {
+    return (
+      <Descriptif
+        key={element.image}
+        image={element.image}
+        theme={presentation.theme}
+        sousTitre={element.sousTitre}
+        texte={element.texte}
+      />
+    );
+  });
+}
+
+function Presentation(props) {
+  const { information, presentation } = props;
+  let step, theme, titre;
+  if (information) {
+    step = information.step;
+    theme = information.theme;
+  } else {
+    theme = presentation.theme;
+    titre = presentation.titre;
   }
+
+  return (
+    <Wrapper color={theme}>
+      {information ? (
+        <React.Fragment>
+          {information.titre && <Titre texte={information.titre} />}
+          <Question> {information.question} </Question>
+          <Descriptifs>{renderDescriptifs(props)}</Descriptifs>
+          <Step color={theme}>{step}</Step>
+        </React.Fragment>
+      ) : (
+        <React.Fragment>
+          <Titre texte={titre} />
+          <Descriptifs>{renderPresentation(props)}</Descriptifs>
+        </React.Fragment>
+      )}
+    </Wrapper>
+  );
 }
 
 Presentation.propTypes = {
