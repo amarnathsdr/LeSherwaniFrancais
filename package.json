@@ -1,0 +1,24 @@
+{
+  "name": "lesherwanifrancais",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "react-ga": "^2.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amarnathsdr/LeSherwaniFrancais.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amarnathsdr/LeSherwaniFrancais/issues"
+  },
+  "homepage": "https://github.com/amarnathsdr/LeSherwaniFrancais#readme"
+}
