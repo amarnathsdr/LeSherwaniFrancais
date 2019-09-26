@@ -4,11 +4,16 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "concurrently": "^4.1.2",
     "eslint-plugin-react-hooks": "^2.0.1",
     "react-ga": "^2.6.0"
   },
   "devDependencies": {},
   "scripts": {
+    "client": "npm start --prefix client",
+    "server": "npm start --prefix server",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client ",
     "test": "echo \"Error: no test specified.\""
   },
   "repository": {
