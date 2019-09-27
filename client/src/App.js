@@ -8,12 +8,12 @@ import { ApolloProvider } from "react-apollo";
 import ReactGA from "react-ga";
 import { PageView, initGA } from "./tracking";
 
-import Navigation from "components/Navigation";
-import NavigationBottom from "components/NavigationBottom";
-import Concept from "components/page/Concept";
-import Creations from "components/page/Creations";
-import Atelier from "components/page/Atelier";
-import Produits from "components/page/Produits";
+import Navigation from "./components/Navigation";
+import NavigationBottom from "./components/NavigationBottom";
+import Concept from "./components/page/Concept";
+import Creations from "./components/page/Creations";
+import Atelier from "./components/page/Atelier";
+import Produits from "./components/page/Produits";
 
 const Wrapper = styled.div`
   display: flex;

@@ -7,9 +7,9 @@ import { Event } from "../tracking";
 
 import "./Navigation.css";
 
-import logo from "assets/images/LSF.png";
-import france from "assets/images/france.png";
-import angleterre from "assets/images/angleterre.png";
+import logo from "../assets/images/LSF.png";
+import france from "../assets/images/france.png";
+import angleterre from "../assets/images/angleterre.png";
 
 function Navigation(props) {
   const { links, i18n } = props;

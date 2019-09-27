@@ -1,0 +1,2 @@
+body{-webkit-font-smoothing:antialiased}.navbar{background-color:#003b6b;color:red}.logo{height:40px;width:40px}.navbar-content{display:flex;width:100%;justify-content:space-around;align-items:center}.navbar-content a{font-family:Bodoni\ 72 Oldstyle;font-weight:700;color:#fff!important}.navbar-content a:hover{padding:5px 0 1px;border-bottom:4px solid #cf021b}.navbar-content img{width:30px;height:30px}.navbar-content img:hover{opacity:.5}@media screen and (max-width:650px){.slick-dots{bottom:-15px}}
+/*# sourceMappingURL=main.6d8975b3.chunk.css.map */
