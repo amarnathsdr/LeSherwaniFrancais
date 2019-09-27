@@ -1,1 +1,1 @@
-web: node client/App.js
+web: npm start --prefix client
