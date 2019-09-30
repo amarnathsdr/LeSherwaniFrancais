@@ -5,8 +5,8 @@ import { withTranslation } from "react-i18next";
 
 import "./Accueil.css";
 
-import slide1 from "assets/images/amran.png";
-import slide2 from "assets/images/slide2.png";
+import slide1 from "../assets/images/amran.png";
+import slide2 from "../assets/images/slide2.png";
 
 const Wrapper = styled.div`
   margin-top: 40px;

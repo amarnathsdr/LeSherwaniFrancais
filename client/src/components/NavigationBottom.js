@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { withTranslation } from "react-i18next";
-import CREATE_FEEDBACK from "../apollo/mutations";
 import { Mutation } from "@apollo/react-components";
 
+import CREATE_FEEDBACK from "../apollo/mutations";
 import Modal from "./Modal";
 
 const Wrapper = styled.div`
