@@ -81,7 +81,7 @@
     "workbox-webpack-plugin": "4.2.0"
   },
   "scripts": {
-    "start": "node ./index.js",
+    "start": "NODE_PATH=src node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "lint": "eslint --max-warnings=0 ."

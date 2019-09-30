@@ -14,9 +14,9 @@
     "client": "npm start --prefix client",
     "server": "npm start --prefix server",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client ",
+    "heroku-postbuild": "cd client && npm install && npm run build",
     "test": "echo \"Error: no test specified.\"",
-    "start": "npm start --prefix client"
+    "start": "cd server && npm install && node server.js"
   },
   "repository": {
     "type": "git",
