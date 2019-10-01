@@ -31,24 +31,24 @@
       },
       {
         "image": "metre.png",
-        "sousTitre": "du sur-mesure",
+        "sousTitre": "Du sur-mesure",
         "texte": "Oui et du vrai ! Le vêtement est réalisé uniquement après avoir pris vos mesures. Il vous est destiné !"
       },
       {
         "image": "coin.png",
-        "sousTitre": "un prix raisonnable",
-        "texte": "Avec des produits de qualités, nous restons sur le prix du marché, et surtout des prix justifiés !"
+        "sousTitre": "Un prix raisonnable",
+        "texte": "Avec des produits de qualité, nous restons sur le prix du marché, et surtout des prix justifiés !"
       },
       {
         "image": "hour.png",
-        "sousTitre": "les commandes 24h",
+        "sousTitre": "Les commandes 24h",
         "texte": "La couture étant réalisée à Paris, il vous est possible de commander en 24h."
       }
     ]
   },
   "informations": [
     {
-      "titre": "Comment ca marche ?",
+      "titre": "Comment ça marche ?",
       "step": "1",
       "question": "« Comment vous contacter ? »",
       "theme": "degradé",
@@ -69,7 +69,7 @@
     },
     {
       "step": "2",
-      "question": "« Que pouvez vous réaliser comme modèle ? »",
+      "question": "« Quel modèle pouvez-vous réaliser ? »",
       "theme": "blanc",
       "elements": [
         {
@@ -101,7 +101,7 @@
         },
         {
           "image": "coat.png",
-          "texte": "Vous souhaitez faire une surprise à votre conjoint ? Vous pouvez nous remettre un de ses vêtement pour nous prélevions ses mesures."
+          "texte": "Vous souhaitez faire une surprise à votre conjoint ? Vous pouvez nous remettre un de ses vêtement pour que nous prélevions ses mesures."
         }
       ]
     },
@@ -134,7 +134,7 @@
     "envoyer": "envoyer"
   },
   "atelier": {
-    "content": "L’atelier du Sherwani Français vous permettra de réaliser votre Sherwani virtuel ainsi d’avoir un devis. Vous laisserais donc place à votre imagination !"
+    "content": "L’Atelier du Sherwani Français vous permettra de réaliser votre Sherwani virtuel et ainsi d’avoir un devis. Vous laisserais donc place à votre imagination !"
   },
   "produits": {
     "content": "Ici, vous allez bientôt découvrir tous les tissus disponible pour la réalisation de votre produit."
