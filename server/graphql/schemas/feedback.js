@@ -1,22 +1,21 @@
-//import all the types we have ( feedback for now )
-const { buildSchema } = require("graphql");
+const { gql } = require("apollo-server-express");
 
-module.exports = buildSchema(`
+module.exports = gql(`
   type Feedback {
     _id: ID!
     content: String
   }
 
-  type RootQuery {
+  type Query {
     feedbacks: [Feedback!]
   }
 
-  type RootMutation {
+  type Mutation {
     createFeedback(content: String): Feedback
   }
 
-  schema{
-    query: RootQuery
-    mutation: RootMutation
+  schema {
+    query: Query
+    mutation: Mutation
   }
 `);

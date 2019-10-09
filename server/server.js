@@ -2,10 +2,12 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const graphqlHttp = require("express-graphql");
-const mongoose = require("mongoose");
+const { ApolloServer, gql } = require("apollo-server-express");
 
-const graphqlSchema = require("./graphql/schemas/feedback");
-const graphqlResolvers = require("./graphql/resolvers/feedback");
+require("./config");
+const Feedback = require("./models/feedback");
+const typeDefs = require("./graphql/schemas/feedback");
+const resolvers = require("./graphql/resolvers/feedback");
 
 const app = express();
 
@@ -22,27 +24,14 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(
-  "/graphql",
-  graphqlHttp({
-    schema: graphqlSchema,
-    rootValue: graphqlResolvers,
-    graphiql: true
-  })
-);
+const schema = new ApolloServer({
+  typeDefs,
+  resolvers,
+  introspection: true,
+  playground: true
+});
 
-mongoose
-  .connect(
-    `mongodb+srv://${process.env.MONGO_USER}:${
-      process.env.MONGO_PASSWORD
-    }@cluster0-rsdbl.mongodb.net/${
-      process.env.MONGO_DB
-    }?retryWrites=true&w=majority`
-  )
-  .then()
-  .catch(err => {
-    console.log(err);
-  });
+schema.applyMiddleware({ app });
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
@@ -51,5 +40,6 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-const PORT = process.env.PORT || 4000;
-app.listen(PORT);
+app.listen(process.env.PORT || 4000, () => {
+  console.log(`Server started on port: ${process.env.MONGODB_URI || 4000}`);
+});
