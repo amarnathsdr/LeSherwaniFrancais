@@ -6,6 +6,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import ApolloClient from "apollo-client";
 import { ApolloProvider } from "react-apollo";
 import { HttpLink } from "apollo-link-http";
+import HttpsRedirect from "react-https-redirect";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { PageView, initGA } from "./tracking";
 
@@ -40,18 +41,20 @@ class App extends React.Component {
     const { t } = this.props;
     const liens = t("navbar");
     return (
-      <ApolloProvider client={client}>
-        <BrowserRouter>
-          <Wrapper>
-            <Route path="/" render={() => <Navigation links={liens} />} />
-            <Route exact path="/" component={Concept} />
-            <Route path="/creations" component={Creations} />
-            <Route path="/atelier" component={Atelier} />
-            <Route path="/produits" component={Produits} />
-            <Route path="/" component={NavigationBottom} />
-          </Wrapper>
-        </BrowserRouter>
-      </ApolloProvider>
+      <HttpsRedirect>
+        <ApolloProvider client={client}>
+          <BrowserRouter>
+            <Wrapper>
+              <Route path="/" render={() => <Navigation links={liens} />} />
+              <Route exact path="/" component={Concept} />
+              <Route path="/creations" component={Creations} />
+              <Route path="/atelier" component={Atelier} />
+              <Route path="/produits" component={Produits} />
+              <Route path="/" component={NavigationBottom} />
+            </Wrapper>
+          </BrowserRouter>
+        </ApolloProvider>
+      </HttpsRedirect>
     );
   }
 }
