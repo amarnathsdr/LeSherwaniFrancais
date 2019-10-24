@@ -7,6 +7,7 @@ import ApolloClient from "apollo-client";
 import { ApolloProvider } from "react-apollo";
 import { HttpLink } from "apollo-link-http";
 import HttpsRedirect from "react-https-redirect";
+import { InMemoryCache } from "apollo-cache-inmemory";
 import { PageView, initGA } from "./tracking";
 
 import Navigation from "./components/Navigation";
@@ -26,7 +27,9 @@ const link = new HttpLink({
 });
 
 const client = new ApolloClient({
-  link
+  link,
+  cache: new InMemoryCache(),
+  introspection: true
 });
 
 class App extends React.Component {
