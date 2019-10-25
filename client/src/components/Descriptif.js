@@ -29,14 +29,14 @@ const Wrapper = styled.div`
 
 const Titre = styled.p`
   align-self: flex-start;
-  font-family: "Couture";
+  font-family: "Hammersmith One", sans-serif;
   color: #003b6b;
   font-size: small;
 `;
 
 const Description = styled.p`
   align-self: center;
-  font-family: "Hiragino Sans";
+  font-family: "Josefin Sans", sans-serif;
   font-weight: 200;
   line-height: 13pt;
   font-size: 1.2vw;

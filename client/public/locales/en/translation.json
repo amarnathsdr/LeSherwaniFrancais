@@ -26,22 +26,22 @@
     "elements": [
       {
         "image": "idee.png",
-        "sousTitre": "Your imagination",
+        "sousTitre": "YOUR IMAGINATION",
         "texte": "Your imagination has no limit. We realise all your crazy ideas. "
       },
       {
         "image": "metre.png",
-        "sousTitre": "Bespoke suits",
+        "sousTitre": "BESPOKE SUITS",
         "texte": "Yes and for real ! The suits are realised only after taking your measurment. It will be a unique piece."
       },
       {
         "image": "coin.png",
-        "sousTitre": "justified price",
+        "sousTitre": "JUSTIFIED PRICE",
         "texte": "With premium fabrics, we still have an attractive price."
       },
       {
         "image": "hour.png",
-        "sousTitre": "24h orders",
+        "sousTitre": "24H ORDERS",
         "texte": "As the production is in Paris. We can also produce a product within 24 hours."
       }
     ]

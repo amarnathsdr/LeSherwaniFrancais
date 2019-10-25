@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import PropTypes from "prop-types";
 import { withTranslation } from "react-i18next";
 import { BrowserRouter, Route } from "react-router-dom";
@@ -8,6 +8,7 @@ import { ApolloProvider } from "react-apollo";
 import { HttpLink } from "apollo-link-http";
 import HttpsRedirect from "react-https-redirect";
 import { InMemoryCache } from "apollo-cache-inmemory";
+
 import { PageView, initGA } from "./tracking";
 
 import Navigation from "./components/Navigation";

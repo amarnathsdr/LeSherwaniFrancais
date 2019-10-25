@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 
 const Texte = styled.p`
   margin-top: 3px;
-  font-family: "Bodoni 72 Oldstyle";
+  font-family: "Amiri";
   font-weight: bold;
   color: #003b6b;
 `;
