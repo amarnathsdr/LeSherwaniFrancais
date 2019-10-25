@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 
 const Question = styled.p`
   align-self: center;
-  font-family: "Bodoni 72 Oldstyle";
+  font-family: "Bad Script", cursive;
   font-style: italic;
   color: #a35353;
 `;
@@ -36,7 +36,7 @@ const Step = styled.p`
   position: absolute;
   right: 0px;
   font-size: 20vw;
-  font-family: "Nouvelle Vague";
+  font-family: "Amiri";
   @media (max-width: 478px) {
     display: none;
   }

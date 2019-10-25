@@ -39,7 +39,7 @@ const Col = styled.div`
 
 const Title = styled.p`
   color: white;
-  font-family: "Couture";
+  font-family: "Hammersmith One", sans-serif;
   font-size: medium;
   margin-bottom: 10%;
   @media (max-width: 980px) {

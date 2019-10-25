@@ -18,7 +18,7 @@ const modalStyles = {
 };
 
 const Title = styled.p`
-  font-family: "Bodoni 72 Oldstyle";
+  font-family: "Amiri";
   font-weight: bold;
   font-size: 2.5vw;
   color: #003b6b;
@@ -26,7 +26,8 @@ const Title = styled.p`
 `;
 
 const Content = styled.p`
-  font-family: "Hiragino sans";
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: bold;
   font-size: 1.3vw;
   color: #003b6b;
   font-weight: 150;
@@ -34,6 +35,13 @@ const Content = styled.p`
   @media (max-width: 650px) {
     font-size: 2vw;
   }
+`;
+
+const Close = styled.a`
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  font-size: 24px;
 `;
 
 function Modal(props) {
@@ -45,8 +53,13 @@ function Modal(props) {
       closeOnDocumentClick
       contentStyle={modalStyles.backgroundStyle}
     >
-      <Title>{title}</Title>
-      <Content>{content}</Content>
+      {close => (
+        <React.Fragment>
+          <Close onClick={close}>&times;</Close>
+          <Title>{title}</Title>
+          <Content>{content}</Content>
+        </React.Fragment>
+      )}
     </Popup>
   );
 }

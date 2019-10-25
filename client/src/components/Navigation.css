@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Amiri:700&display=swap");
+
 .navbar {
   background-color: #003b6b;
   color: red;
@@ -16,8 +18,8 @@
 }
 
 .navbar-content a {
-  font-family: "Bodoni 72 Oldstyle";
-  font-weight: bold;
+  font-family: "Amiri";
+  font-weight: 700;
   color: white !important;
 }
 

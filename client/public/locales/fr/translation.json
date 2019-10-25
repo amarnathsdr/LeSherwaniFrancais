@@ -26,22 +26,22 @@
     "elements": [
       {
         "image": "idee.png",
-        "sousTitre": "Votre imagination",
+        "sousTitre": "VOTRE IMAGINATION",
         "texte": "Votre imagination n’a aucune limite. Des modèles du passé, du présent ou bien du futur, nous réaliserons vos idées les plus folles !"
       },
       {
         "image": "metre.png",
-        "sousTitre": "Du sur-mesure",
+        "sousTitre": "DU SUR-MESURE",
         "texte": "Oui et du vrai ! Le vêtement est réalisé uniquement après avoir pris vos mesures. Il vous est destiné !"
       },
       {
         "image": "coin.png",
-        "sousTitre": "Un prix raisonnable",
+        "sousTitre": "UN PRIX RAISONNABLE",
         "texte": "Avec des produits de qualité, nous restons sur le prix du marché, et surtout des prix justifiés !"
       },
       {
         "image": "hour.png",
-        "sousTitre": "Les commandes 24h",
+        "sousTitre": "LES COMMANDES 24H",
         "texte": "La couture étant réalisée à Paris, il vous est possible de commander en 24h."
       }
     ]
