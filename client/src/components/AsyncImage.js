@@ -7,8 +7,6 @@ class AsyncImage extends React.Component {
   constructor(props) {
     super(props);
     this.state = { loaded: false };
-
-    this.setLoadedTrue = this.setLoadedTrue.bind(this);
   }
 
   render() {
@@ -16,19 +14,16 @@ class AsyncImage extends React.Component {
     const { loaded } = this.state;
     return (
       <React.Fragment>
+        {!loaded ? <Image src={placeholder} className={className} /> : null}
         <Image
+          style={!loaded ? { visibility: "hidden" } : {}}
+          onLoad={() => this.setState({ loaded: true })}
           src={source}
-          onLoad={() => this.setLoadedTrue()}
           className={className}
         />
-        {!loaded ? <Image src={placeholder} className={className} /> : null}
       </React.Fragment>
     );
   }
-
-  setLoadedTrue = () => {
-    this.setState({ loaded: true });
-  };
 }
 
 export default AsyncImage;
