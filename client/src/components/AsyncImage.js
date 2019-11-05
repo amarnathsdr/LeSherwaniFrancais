@@ -10,10 +10,10 @@ class AsyncImage extends React.Component {
     const { source, placeholder, className } = this.props;
     return (
       <React.Fragment>
+        <Image src={source} onLoad={this.onLoad} className={className} />
         {!this.state.loaded && (
           <Image src={placeholder} className={className} />
         )}
-        <Image src={source} onLoad={this.onLoad} className={className} />
       </React.Fragment>
     );
   }
