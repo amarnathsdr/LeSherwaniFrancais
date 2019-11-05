@@ -4,9 +4,12 @@ import Slider from "react-slick";
 import { withTranslation } from "react-i18next";
 
 import "./Accueil.css";
+import AsyncImage from "./AsyncImage";
 
-import slide1 from "../assets/images/amran.png";
+import slide1 from "../assets/images/slide1.png";
+import placeholder1 from "../assets/images/placeholder1.png";
 import slide2 from "../assets/images/slide2.png";
+import placeholder2 from "../assets/images/placeholder2.png";
 
 const Wrapper = styled.div`
   margin-top: 40px;
@@ -96,6 +99,20 @@ const Photo = styled.img`
   }
 `;
 
+const AsyncImageStyled = styled(AsyncImage)`
+  width: 60%;
+  max-width: 60%;
+  height: auto;
+  margin-right: 4%;
+  position: relative;
+  float: right;
+  z-index: 2;
+  @media (max-width: 479px) {
+    width: 90%;
+    max-width: 90%;
+  }
+`;
+
 function Accueil(props) {
   const settings = {
     autoplay: true,
@@ -116,17 +133,11 @@ function Accueil(props) {
       </Left>
       <Slider {...settings}>
         <div>
-          <Photo
-            src={slide1}
-            onLoad={() => window.dispatchEvent(new Event("resize"))}
-          />
+          <AsyncImageStyled source={slide1} placeholder={placeholder1} />
           <Reference>{t("accueil.reference1")}</Reference>
         </div>
         <div>
-          <Photo
-            src={slide2}
-            onLoad={() => window.dispatchEvent(new Event("resize"))}
-          />
+          <AsyncImageStyled source={slide2} placeholder={placeholder2} />
           <Reference>{t("accueil.reference2")}</Reference>
         </div>
       </Slider>
