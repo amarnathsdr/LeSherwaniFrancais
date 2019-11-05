@@ -62,7 +62,7 @@ function Bloc(props) {
   const { image, theme } = props;
   return (
     <Wrapper>
-      <LazyLoad height={200}>
+      <LazyLoad height={200} offset={100}>
         <BlocIcon src={require("../assets/images/" + image)} color={theme} />
       </LazyLoad>
     </Wrapper>
