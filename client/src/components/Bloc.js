@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import LazyLoad from "react-lazyload";
 
 const Wrapper = styled.div`
   display: flex;
@@ -61,7 +62,9 @@ function Bloc(props) {
   const { image, theme } = props;
   return (
     <Wrapper>
-      <BlocIcon src={require("../assets/images/" + image)} color={theme} />
+      <LazyLoad height={200}>
+        <BlocIcon src={require("../assets/images/" + image)} color={theme} />
+      </LazyLoad>
     </Wrapper>
   );
 }
